@@ -41,7 +41,6 @@ Item {
             font.family: Typography.family
             font.pixelSize: Typography.bodyMedium
             font.weight: Font.DemiBold
-            letterSpacing: 0
         }
 
         Rectangle {
@@ -62,7 +61,6 @@ Item {
                 font.family: Typography.family
                 font.pixelSize: Typography.label
                 font.weight: Font.Medium
-                letterSpacing: 0
             }
 
             MouseArea {
@@ -83,7 +81,6 @@ Item {
                 font.family: Typography.family
                 font.pixelSize: Typography.label
                 font.weight: Font.DemiBold
-                letterSpacing: 0
             }
 
             Text {
@@ -94,7 +91,6 @@ Item {
                 font.family: Typography.family
                 font.pixelSize: Typography.label
                 font.weight: Font.DemiBold
-                letterSpacing: 0
             }
 
             Text {
@@ -103,7 +99,6 @@ Item {
                 font.family: Typography.family
                 font.pixelSize: Typography.label
                 font.weight: Font.DemiBold
-                letterSpacing: 0
             }
         }
 
@@ -125,7 +120,6 @@ Item {
                 font.family: Typography.family
                 font.pixelSize: Typography.label
                 font.weight: Font.Medium
-                letterSpacing: 0
             }
 
             MouseArea {
@@ -188,7 +182,6 @@ Item {
                         font.family: Typography.family
                         font.pixelSize: Typography.bodySmall
                         font.weight: root.currentPageIndex === index ? Font.DemiBold : Font.Medium
-                        letterSpacing: 0
                     }
 
                     MouseArea {
