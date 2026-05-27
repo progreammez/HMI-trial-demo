@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty(QStringLiteral("vehicleData"), &vehicleData);
 
-    engine.load(QUrl(QStringLiteral("qrc:/qt/qml/EvHmi/qml/Main.qml")));
+    engine.loadFromModule("EvHmi", "Main");
     if (engine.rootObjects().isEmpty()) {
         return -1;
     }
