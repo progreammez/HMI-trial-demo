@@ -1,27 +1,22 @@
 cmake_minimum_required(VERSION 3.21)
-
 project(EvHmi
     VERSION 0.1.0
     LANGUAGES CXX
 )
-
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
-
 find_package(Qt6 6.2 REQUIRED COMPONENTS Core Gui Qml Quick QuickControls2)
 include(GNUInstallDirs)
-
 set_source_files_properties(
     qml/themes/Colors.qml
     qml/themes/Typography.qml
     qml/themes/Theme.qml
     PROPERTIES QT_QML_SINGLETON_TYPE TRUE
 )
-
 qt_add_executable(ev_hmi
     main.cpp
     backend/VehicleDataManager.cpp
@@ -30,12 +25,10 @@ qt_add_executable(ev_hmi
     simulations/TelemetrySimulator.cpp
     simulations/TelemetrySimulator.h
 )
-
 target_include_directories(ev_hmi
     PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}
 )
-
 qt_add_qml_module(ev_hmi
     URI EvHmi
     VERSION 1.0
@@ -43,6 +36,9 @@ qt_add_qml_module(ev_hmi
         qml/Main.qml
         qml/AppShell.qml
         qml/components/BaseCard.qml
+        qml/components/CockpitFrame.qml
+        qml/components/EnergyBar.qml
+        qml/components/MetricTile.qml
         qml/pages/HomePage.qml
         qml/pages/MusicPage.qml
         qml/pages/SettingsPage.qml
@@ -51,7 +47,6 @@ qt_add_qml_module(ev_hmi
         qml/themes/Typography.qml
         qml/themes/Theme.qml
 )
-
 target_link_libraries(ev_hmi
     PRIVATE
         Qt6::Core
@@ -60,7 +55,6 @@ target_link_libraries(ev_hmi
         Qt6::Quick
         Qt6::QuickControls2
 )
-
 if (UNIX AND NOT APPLE)
     install(TARGETS ev_hmi
         BUNDLE DESTINATION .
