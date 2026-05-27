@@ -1,3 +1,53 @@
+import QtQuick
+import EvHmi
+
+Item {
+    id: root
+
+    property int currentPageIndex: 0
+    readonly property var pages: [
+        { "label": "Home" },
+        { "label": "Music" },
+        { "label": "Set" },
+        { "label": "Dbg" }
+    ]
+
+    Rectangle {
+        anchors.fill: parent
+        color: Colors.backgroundPrimary
+
+        Rectangle {
+            anchors.fill: parent
+            gradient: Gradient {
+                GradientStop { position: 0.0; color: "#090B0D" }
+                GradientStop { position: 0.58; color: Colors.backgroundPrimary }
+                GradientStop { position: 1.0; color: "#060707" }
+            }
+        }
+    }
+
+    Item {
+        id: topBar
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.top: parent.top
+        height: Theme.topBarHeight
+
+        Text {
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.verticalCenter: parent.verticalCenter
+            text: "EV HMI"
+            color: Colors.textSecondary
+            font.family: Typography.family
+            font.pixelSize: Typography.bodyMedium
+            font.weight: Font.DemiBold
+            letterSpacing: 0
+        }
+
+        Rectangle {
+            anchors.left: parent.left
+            anchors.leftMargin: Theme.pageMargin
+            anchors.verticalCenter: parent.verticalCenter
             width: Math.round(52 * Theme.scale)
             height: Math.round(34 * Theme.scale)
             radius: Math.round(5 * Theme.scale)
