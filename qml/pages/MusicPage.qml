@@ -23,7 +23,6 @@ Item {
                 font.family: Typography.family
                 font.pixelSize: Typography.displayMedium
                 font.weight: Font.Light
-                letterSpacing: 0
             }
         }
 
@@ -39,7 +38,6 @@ Item {
                 font.family: Typography.family
                 font.pixelSize: Typography.titleLarge
                 font.weight: Font.DemiBold
-                letterSpacing: 0
             }
         }
     }
