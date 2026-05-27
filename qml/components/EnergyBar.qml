@@ -20,7 +20,6 @@ Item {
         font.family: Typography.family
         font.pixelSize: Typography.label
         font.weight: Font.DemiBold
-        letterSpacing: 0
     }
 
     Row {
@@ -54,7 +53,6 @@ Item {
         font.family: Typography.family
         font.pixelSize: Typography.label
         font.weight: Font.DemiBold
-        letterSpacing: 0
     }
 
     Text {
@@ -66,6 +64,5 @@ Item {
         font.family: Typography.family
         font.pixelSize: Typography.label
         font.weight: Font.DemiBold
-        letterSpacing: 0
     }
 }

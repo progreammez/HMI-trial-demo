@@ -46,7 +46,6 @@ Rectangle {
         font.pixelSize: Typography.label
         font.weight: Font.DemiBold
         elide: Text.ElideRight
-        letterSpacing: 0
     }
 
     Item {

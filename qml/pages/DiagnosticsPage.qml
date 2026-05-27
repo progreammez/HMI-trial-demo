@@ -80,7 +80,6 @@ Item {
                 font.family: Typography.family
                 font.pixelSize: Typography.titleMedium
                 font.weight: Font.DemiBold
-                letterSpacing: 0
             }
         }
 
@@ -96,7 +95,6 @@ Item {
                 font.family: Typography.family
                 font.pixelSize: Typography.titleMedium
                 font.weight: Font.DemiBold
-                letterSpacing: 0
             }
         }
     }

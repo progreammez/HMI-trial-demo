@@ -26,7 +26,6 @@ Rectangle {
             font.family: Typography.family
             font.pixelSize: Typography.label
             font.weight: Font.Medium
-            letterSpacing: 0
         }
 
         Text {
@@ -37,7 +36,6 @@ Rectangle {
             font.family: Typography.family
             font.pixelSize: Typography.bodyLarge
             font.weight: Font.DemiBold
-            letterSpacing: 0
         }
     }
 }
