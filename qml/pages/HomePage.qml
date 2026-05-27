@@ -2,116 +2,89 @@ import QtQuick
 import EvHmi
 
 Item {
-    BaseCard {
-        id: speedCard
-        anchors.left: parent.left
+    id: root
+
+    readonly property color modeColor: vehicleData.driveMode === "Sport" ? Colors.accentSport
+        : vehicleData.driveMode === "City" ? Colors.accentCity
+        : Colors.accentEco
+
+    Text {
+        id: title
+        anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: parent.top
+        anchors.topMargin: Math.round(2 * Theme.scale)
+        text: "Electric Car Dashboard"
+        color: Colors.textWarm
+        opacity: 0.92
+        font.family: Typography.family
+        font.pixelSize: Math.round(38 * Theme.scale)
+        font.weight: Font.DemiBold
+        letterSpacing: 0
+    }
+
+    Text {
+        anchors.left: title.right
+        anchors.leftMargin: Math.round(24 * Theme.scale)
+        anchors.baseline: title.baseline
+        text: "EV"
+        color: Colors.textWarm
+        opacity: 0.86
+        font.family: Typography.family
+        font.pixelSize: Math.round(30 * Theme.scale)
+        font.weight: Font.DemiBold
+        letterSpacing: 0
+    }
+
+    CockpitFrame {
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.top: title.bottom
         anchors.bottom: parent.bottom
-        width: parent.width * 0.48
-        title: "Drive"
-        baseColor: Colors.surfaceRaised
+        anchors.topMargin: Math.round(12 * Theme.scale)
+        lineColor: Colors.accentCopper
+        dimLineColor: Colors.accentCopperDim
+    }
+
+    Row {
+        id: statusRow
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top: title.bottom
+        anchors.topMargin: Math.round(72 * Theme.scale)
+        spacing: Math.round(70 * Theme.scale)
 
         Text {
-            anchors.centerIn: parent
-            text: Math.round(vehicleData.speedKph)
+            text: "11:25 AM"
             color: Colors.textPrimary
             font.family: Typography.family
-            font.pixelSize: Typography.displayLarge
-            font.weight: Font.Light
+            font.pixelSize: Typography.bodySmall
+            font.weight: Font.DemiBold
             letterSpacing: 0
         }
 
         Text {
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.top: parent.verticalCenter
-            anchors.topMargin: Math.round(58 * Theme.scale)
-            text: "km/h"
-            color: Colors.textSecondary
+            text: "PUNE 31 C"
+            color: Colors.textPrimary
             font.family: Typography.family
-            font.pixelSize: Typography.bodyLarge
-            letterSpacing: 0
-        }
-
-        Text {
-            anchors.left: parent.left
-            anchors.bottom: parent.bottom
-            text: vehicleData.gear
-            color: Colors.accentEco
-            font.family: Typography.family
-            font.pixelSize: Typography.titleLarge
+            font.pixelSize: Typography.bodySmall
             font.weight: Font.DemiBold
             letterSpacing: 0
         }
     }
 
-    Grid {
-        anchors.left: speedCard.right
-        anchors.leftMargin: Theme.cardGap
-        anchors.right: parent.right
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
-        columns: 2
-        rows: 2
-        spacing: Theme.cardGap
+    Row {
+        id: gearStrip
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top: statusRow.bottom
+        anchors.topMargin: Math.round(12 * Theme.scale)
+        spacing: Math.round(12 * Theme.scale)
 
-        BaseCard {
-            width: (parent.width - Theme.cardGap) / 2
-            height: (parent.height - Theme.cardGap) / 2
-            title: "Battery"
+        Repeater {
+            model: ["P", "R", "N", "D"]
 
             Text {
-                anchors.centerIn: parent
-                text: Math.round(vehicleData.batteryPercent) + "%"
-                color: Colors.textPrimary
-                font.family: Typography.family
-                font.pixelSize: Typography.displayMedium
-                font.weight: Font.Light
-                letterSpacing: 0
-            }
-        }
-
-        BaseCard {
-            width: (parent.width - Theme.cardGap) / 2
-            height: (parent.height - Theme.cardGap) / 2
-            title: "Range"
-
-            Text {
-                anchors.centerIn: parent
-                text: Math.round(vehicleData.estimatedRangeKm) + " km"
-                color: Colors.textPrimary
-                font.family: Typography.family
-                font.pixelSize: Typography.titleLarge
-                font.weight: Font.DemiBold
-                letterSpacing: 0
-            }
-        }
-
-        BaseCard {
-            width: (parent.width - Theme.cardGap) / 2
-            height: (parent.height - Theme.cardGap) / 2
-            title: "Thermal"
-
-            Text {
-                anchors.centerIn: parent
-                text: Math.round(vehicleData.motorTemperatureC) + " / "
-                    + Math.round(vehicleData.batteryTemperatureC) + " C"
-                color: Colors.textPrimary
-                font.family: Typography.family
-                font.pixelSize: Typography.titleMedium
-                font.weight: Font.DemiBold
-                letterSpacing: 0
-            }
-        }
-
-        BaseCard {
-            width: (parent.width - Theme.cardGap) / 2
-            height: (parent.height - Theme.cardGap) / 2
-            title: "Odometer"
-
-            Text {
-                anchors.centerIn: parent
-                text: Math.round(vehicleData.odometerKm).toLocaleString(Qt.locale()) + " km"
-                color: Colors.textPrimary
+                text: modelData
+                color: modelData === vehicleData.gear ? root.modeColor : Colors.textMuted
+                opacity: modelData === vehicleData.gear ? 1.0 : 0.48
                 font.family: Typography.family
                 font.pixelSize: Typography.titleMedium
                 font.weight: Font.DemiBold
@@ -119,4 +92,9 @@ Item {
             }
         }
     }
-}
+
+    MetricTile {
+        anchors.left: parent.left
+        anchors.leftMargin: Math.round(84 * Theme.scale)
+        anchors.top: parent.top
+        anchors.topMargin: Math.round(170 * Theme.scale)
