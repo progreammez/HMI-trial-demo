@@ -19,7 +19,7 @@ Item {
         font.family: Typography.family
         font.pixelSize: Math.round(38 * Theme.scale)
         font.weight: Font.DemiBold
-        letterSpacing: 0
+        
     }
 
     Text {
@@ -32,7 +32,7 @@ Item {
         font.family: Typography.family
         font.pixelSize: Math.round(30 * Theme.scale)
         font.weight: Font.DemiBold
-        letterSpacing: 0
+        
     }
 
     CockpitFrame {
@@ -58,7 +58,7 @@ Item {
             font.family: Typography.family
             font.pixelSize: Typography.bodySmall
             font.weight: Font.DemiBold
-            letterSpacing: 0
+            
         }
 
         Text {
@@ -67,7 +67,7 @@ Item {
             font.family: Typography.family
             font.pixelSize: Typography.bodySmall
             font.weight: Font.DemiBold
-            letterSpacing: 0
+            
         }
     }
 
@@ -88,7 +88,7 @@ Item {
                 font.family: Typography.family
                 font.pixelSize: Typography.titleMedium
                 font.weight: Font.DemiBold
-                letterSpacing: 0
+                
             }
         }
     }
@@ -131,7 +131,7 @@ Item {
             font.family: Typography.family
             font.pixelSize: Math.round(82 * Theme.scale)
             font.weight: Font.DemiBold
-            letterSpacing: 0
+            
         }
 
         Text {
@@ -141,7 +141,7 @@ Item {
             font.family: Typography.family
             font.pixelSize: Typography.bodySmall
             font.weight: Font.Medium
-            letterSpacing: 0
+            
         }
 
         Text {
@@ -151,7 +151,7 @@ Item {
             font.family: Typography.family
             font.pixelSize: Typography.bodySmall
             font.weight: Font.Medium
-            letterSpacing: 0
+            
         }
     }
 
@@ -172,7 +172,7 @@ Item {
                 font.family: Typography.family
                 font.pixelSize: Typography.bodySmall
                 font.weight: Font.DemiBold
-                letterSpacing: 0
+                
             }
         }
     }
@@ -186,7 +186,7 @@ Item {
         color: Colors.textMuted
         font.family: Typography.family
         font.pixelSize: Typography.bodySmall
-        letterSpacing: 0
+        
     }
 
     Text {
@@ -198,7 +198,7 @@ Item {
         color: Colors.textMuted
         font.family: Typography.family
         font.pixelSize: Typography.bodySmall
-        letterSpacing: 0
+        
     }
 
     EnergyBar {
